@@ -17,14 +17,11 @@ html,body{
   width: 100%;
   height: 500px;
   background-size: 100% 100%;
-  border: 1px solid red;
 }
-.imgClassTwo{
-  background-image: url("/static/img/bird.jpg");
-  width: 100%;
-  height: 500px;
-  background-size: 100% 100%;
-  border: 1px solid red;
+.buttonClass{
+  color: white;
+  background-color: #fed136;
+  border-color: #fed136;
 }
 #leftBtn{
   float: left;

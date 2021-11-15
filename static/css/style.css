@@ -13,7 +13,7 @@ html,body{
   min-height: 55vh;
 }
 .imgClass{
-  background-image: url("/static/img/japan.jpg");
+ 
   width: 100%;
   height: 500px;
   background-size: 100% 100%;

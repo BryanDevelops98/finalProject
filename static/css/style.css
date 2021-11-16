@@ -9,6 +9,11 @@ html,body{
     
 
 }
+
+  
+  .hoverAnim:hover { 
+  transform: scale(1.1,1.1);
+  }
 .heightDiv{
   min-height: 55vh;
 }
@@ -23,22 +28,14 @@ html,body{
   background-color: #fed136;
   border-color: #fed136;
 }
-#leftBtn{
-  float: left;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 
-}
-#rightBtn{
-  float: right  ;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-
+.navbarColor{
+  color: white ;
+  background-color: black;
 }
 .navHover:hover {
     color: yellow !important;
+    transform: scale(1.1,1.1);
   }
 .cssFooter{
   position: relative;

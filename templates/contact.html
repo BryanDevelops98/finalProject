@@ -3,30 +3,38 @@
 
 {% block content %}
 <div class="container-fluid">
+    <h2 class="display-3 text-center ">Contact Us</h2>
+
     <div class=" row border border-primary">
-        <div class="col-6">
-            <div class="row">
+        <div class="col-6 border border-danger ">
+            <div class="row text-center p-4">
                 <div class=" col-3">
                    <img src="{% static 'svg/location.svg' %}">
                 </div>
                 <div class="col-9">
                     <h5>Address</h5>
+                    <p>1615 Stanley St
+                        <br>
+                     New Britain, CT 06050</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row text-center px-4 pb-4">
                 <div class=" col-3">
-                    Contact
+                    <img src="{% static 'svg/envelope.svg' %}">
                 </div>
                 <div class="col-9">
-
+                    <h5>E-mail</h5>
+                    <p>webprogramming@gmail.com</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row text-center px-4 pb-4">
                 <div class=" col-3">
-                    Phone
+                    <img src="{% static 'svg/telephone.svg' %}">               
                 </div>
                 <div class="col-9">
-hello
+                    <h5>Phone</h5>
+                    <p>860-832-3200
+                    </p>
                 </div>
             </div>
         </div>

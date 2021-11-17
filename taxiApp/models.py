@@ -20,8 +20,8 @@ class Car(models.Model):
     vin = models.CharField(max_length=120, blank=False)
     model = models.CharField(max_length=120, blank=False)
     make = models.CharField(max_length=120, blank=False)
-    year = models.IntegerField(max_length=120, blank=False)
-    color = models.CharField(blank=True, null=True, default="#000000")
+    year = models.IntegerField(blank=False)
+    color = models.CharField(max_length=16, blank=True, null=True, default="#000000")
 
 # A Driver can be associated with any number of Cars
 class Driver(models.Model):
@@ -30,7 +30,10 @@ class Driver(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
 
-BOOKING_STATUSES = ("created", "cancelled")
+BOOKING_STATUSES = [
+    ("created", "created"),
+    ("cancelled", "cancelled")
+]
 
 # A Rider can book any number of Bookings
 # A Booking can only be associated with 1 unique Rider (one that created the Booking)
@@ -39,7 +42,7 @@ BOOKING_STATUSES = ("created", "cancelled")
 class Booking(models.Model):
     created = models.DateTimeField(blank=False, null=False)
     updated = models.DateTimeField(auto_now=True, null=False)
-    status = models.CharField(blank=False, choices=BOOKING_STATUSES)
+    status = models.CharField(max_length=85, blank=False, choices=BOOKING_STATUSES)
     destination = models.CharField(max_length=350, blank=False, null=False)
     rider = models.ForeignKey(Rider, on_delete=models.CASCADE)
-    driver = models.ForeignKey(Driver, on_delete=models.SET_NULL) # For now delete, changing driver or driver out/injured is a possibility
+    driver = models.ForeignKey(Driver, on_delete=models.CASCADE) # For now delete, changing driver or driver out/injured is a possibility

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'taxiApp',
 ]
 
+AUTH_USER_MODEL = 'accounts.Rider' # new
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

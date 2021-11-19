@@ -2,5 +2,68 @@
 {% load static %}
 
 {% block content %}
+<div class="container-fluid">
+    <h1 class="text-center pt-2">Our Team</h1>
+    <div class = "row p-4">
+        <div class = "col-md-4 g-2 offset-md-2 text-center">
+           <div class="card" >
+              <img src="{% static 'img/lions.png' %}" class="card-img-top staffImg" alt="img2">
+              <div class="card-body">
+                 <h3 class="card-title text-center">Bryan Orellana</h3>
+                 <p>Web developer</p>
+                 <hr>
+                 <a href="#" class="btn buttonClass">View Profile &raquo;</a>
+              </div>
+           </div>
+        </div>
+        <div class = "col-md-4 g-2 text-center">
+           <div class="card" >
+              <img src="{% static 'img/bearr.png' %}" class="card-img-top staffImg" alt="img3">
+              <div class="card-body">
+                 <h3 class="card-title text-center">Caleb Bostic-Gardner</h3>
+                 <p>Web developer</p>
+                 <hr>
+                 <a href="#" class="btn buttonClass">View Profile &raquo;</a>
+              </div>
+           </div>
+        </div>
+        
+     </div>
+ <div class = "row p-4">
+        <div class = "col-md-4 g-2 text-center ">
+           <div class="card" >
+              <img src="{% static 'img/lions.png' %}" class="card-img-top staffImg" alt="img2">
+              <div class="card-body">
+                 <h3 class="card-title text-center">Driver 1</h3>
+                 <p>Licensed Driver</p>
+                 <hr>
+                 <a href="#" class="btn buttonClass">View Profile &raquo;</a>
+              </div>
+           </div>
+        </div>
+        <div class = "col-md-4 g-2 text-center">
+           <div class="card" >
+              <img src="{% static 'img/bearr.png' %}" class="card-img-top staffImg" alt="img3">
+              <div class="card-body">
+                 <h3 class="card-title text-center">Driver 2</h3>
+                 <p>Licensed Driver</p>
+                 <hr>
+                 <a href="#" class="btn buttonClass">View Profile &raquo;</a>
+              </div>
+           </div>
+        </div>
+        <div class = "col-md-4 g-2 text-center">
+           <div class="card">
+              <img src="{% static 'img/doggy.png' %}" class="card-img-top staffImg text-center" alt="img4">
+              <div class="card-body">
+                 <h3 class="card-title text-center">Driver 3</h3>
+                 <p>Licensed Driver</p>
+                 <hr>
+                 <a href="#" class="btn buttonClass">View Profile &raquo;</a>
+              </div>
+           </div>
+        </div>
+     </div>
 
+</div>
 {% endblock %}

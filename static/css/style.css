@@ -6,12 +6,11 @@ html,body{
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
+    font-family: 'Source Sans Pro', sans-serif;
     
 
 }
-
-  
-  .hoverAnim:hover { 
+ .hoverAnim:hover { 
   transform: scale(1.1,1.1);
   }
 .heightDiv{
@@ -27,6 +26,14 @@ html,body{
   color: white;
   background-color: #fed136;
   border-color: #fed136;
+
+}
+.buttonClass:hover{
+  color: white;
+  background-color: #fed136;
+  border-color: #fed136;
+  transform: scale(1.1,1.1);
+
 }
 
 .navbarColor{
@@ -48,4 +55,12 @@ html,body{
   color: white;
   text-align: center;
   
+}
+
+.staffImg{
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  margin-left: auto;
+  margin-right: auto;
 }

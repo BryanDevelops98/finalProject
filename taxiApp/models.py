@@ -18,6 +18,13 @@ class Review(models.Model):
     rating = models.IntegerField(blank=False, default=0)
     rider = models.ForeignKey(Rider, on_delete=models.CASCADE)
 
+class Contact(models.Model):
+    fullname = models.CharField(max_length=120, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    message = models.TextField(max_length=500, blank=False)
+    phonenumber = models.CharField(max_length=120)
+    organization = models.CharField(max_length=120)
+
 
 class Car(models.Model):
     vin = models.CharField(max_length=120, blank=False)

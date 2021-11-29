@@ -1,19 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse
 
-def hello(request):
-    context = {'name': 'John'}
-    return render(request, 'base.html', context)
-# Create your views here.
 
-def index (request):
-    return render (request,'index.html')
+def index(request: HttpRequest):
+    return render(request, 'taxiApp/index.html')
 
-def contact(request):
-    return render (request, 'contact.html' )
 
-def booking(request):
-    return render (request, 'booking.html' )
+def contact(request: HttpRequest):
+    return render(request, 'taxiApp/contact.html')
 
-def staff(request):
-    return render (request, 'staff.html' )
+
+def booking(request: HttpRequest):
+    return render(request, 'taxiApp/booking.html')
+
+
+def staff(request: HttpRequest):
+    return render(request, 'taxiApp/staff.html')
+
+
+def reviews(request: HttpRequest):
+    return render(request, 'taxiApp/reviews.html')

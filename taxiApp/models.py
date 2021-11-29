@@ -22,8 +22,8 @@ class Contact(models.Model):
     fullname = models.CharField(max_length=120, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     message = models.TextField(max_length=500, blank=False)
-    phonenumber = models.CharField(max_length=120)
-    organization = models.CharField(max_length=120)
+    phonenumber = models.CharField(max_length=120, null=True, blank=True)
+    organization = models.CharField(max_length=120, null=True, blank=True)
 
 
 class Car(models.Model):

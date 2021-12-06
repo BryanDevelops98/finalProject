@@ -58,11 +58,24 @@
         </li>
 
         {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link navHover active" href="{% url 'logout' %}"
-            >Logout</a
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle active"
+            data-bs-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-expanded="false"
+            >{{ user.username }}</a
           >
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'index' %}">Home</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
         </li>
+
         {% else %}
         <li class="nav-item">
           <a class="nav-link navHover active" href="{% url 'login' %}">Login</a>

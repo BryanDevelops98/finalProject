@@ -22,13 +22,6 @@ def contact(request: HttpRequest):
     return render(request, 'taxiApp/contact.html', context)
 
 
-# def contact_submitted(request: HttpRequest, email: str):
-#     if email == '' or email == None:
-#         return redirect('index')
-    
-#     return render(request, 'taxiApp/contact_submitted.html', email)
-
-
 def booking(request: HttpRequest):
     return render(request, 'taxiApp/booking.html')
 
@@ -43,12 +36,14 @@ def reviews(request: HttpRequest):
 @login_required(login_url='login')
 def add_review(request: HttpResponse):
     # create Review form 
-    # if request.method == 'POST':
-        # if form.is_valid():
-            # form.instance.user = request.user
-            # form.save()
-            # return redirect('reviews')
+    form = ReviewForm(request.POST or None)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+            return redirect('reviews')
 
-    # context = {'form': form}
+    context = {'form': form}
     # add context
-    return render(request, 'taxiApp/add_review.html')
+    return render(request, 'taxiApp/add_review.html', context)

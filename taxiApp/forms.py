@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models import fields
 from django.forms import ModelForm
 from .models import *
 
@@ -22,5 +23,24 @@ class ContactForm(ModelForm):
             }),
             'organization': forms.TextInput(attrs={
                 'class': "form-control"
+            }),
+        }
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Review
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': "Title of Review"
+            }),
+            'content': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': "Content of Review"
+            }),
+            'rating': forms.NumberInput(attrs={
+                'class': "form-control",
+                'placeholder': "Leave a Rating"
             }),
         }

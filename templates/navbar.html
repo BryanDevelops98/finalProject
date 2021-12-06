@@ -2,7 +2,8 @@
 
 <nav
   class="navbar navbar-expand-lg navbar-dark navbarColor sticky-top"
-  style="width: 100%">
+  style="width: 100%"
+>
   <div class="container">
     <a class="navbar-brand" href="#">
       <img src="{% static 'img/taxi2.svg' %}" alt="taxi" class="hoverAnim" />
@@ -15,7 +16,8 @@
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
-      aria-label="Toggle navigation">
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -25,7 +27,8 @@
           <a
             class="nav-link navHover active"
             aria-current="page"
-            href="{% url 'index' %}">
+            href="{% url 'index' %}"
+          >
             Home
           </a>
         </li>
@@ -47,12 +50,24 @@
             Staff
           </a>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link navHover active" href="{% url 'reviews' %}">
             Reviews
           </a>
         </li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link navHover active" href="{% url 'logout' %}"
+            >Logout</a
+          >
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link navHover active" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

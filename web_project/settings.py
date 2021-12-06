@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'taxiApp',
+    'accounts'
 ]
 
 AUTH_USER_MODEL = 'taxiApp.Rider' # new

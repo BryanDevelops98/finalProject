@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpRequest, HttpResponse
+from django.contrib.auth.decorators import login_required
 from .forms import *
 
 
@@ -38,3 +39,16 @@ def staff(request: HttpRequest):
 
 def reviews(request: HttpRequest):
     return render(request, 'taxiApp/reviews.html')
+
+@login_required(login_url='login')
+def add_review(request: HttpResponse):
+    # create Review form 
+    # if request.method == 'POST':
+        # if form.is_valid():
+            # form.instance.user = request.user
+            # form.save()
+            # return redirect('reviews')
+
+    # context = {'form': form}
+    # add context
+    return render(request, 'taxiApp/add_review.html')

@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 
 
-def register_view(request):
+def register(request):
     form = UserCreationForm(request.POST or None)
 
     if request.method == 'POST':
@@ -15,7 +15,10 @@ def register_view(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 
-def login_view(request):
+def login(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+
     form = AuthenticationForm(data=request.POST or None)
 
     if request.method == 'POST':
@@ -27,6 +30,6 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 
-def logout_view(request):
+def logout(request):
     logout(request)
     return redirect('index')

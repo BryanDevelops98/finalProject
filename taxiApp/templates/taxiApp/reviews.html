@@ -3,12 +3,28 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h1 class="text-center pt-2 display-4">Our Reviews</h1>
-    <p style="font-size: 18px; margin: 0rem 4.5rem;">
-        Our customers are what makes us, us! We try our best so every customer has the best trip possible.
-        Here are just a handful of the feedback we've recieved from out riders. Your feedback is always taken into account
-        so we can continually improve and offer better service. 
-    </p>
-    <a class="btn btn-sm btn-secondary" href="{% url 'add_review' %}">Add a Review</a>
+    <h1 class="text-center pt-2 display-4">Reviews</h1>
+    <div class="row">
+        <div class="col-12 text-center">
+            <p style="font-size: 18px; margin: 0rem 4.5rem;">
+                Our customers are what makes us, us! We try our best so every customer has the best trip possible.
+                Here are just a handful of the feedback we've recieved from out riders. Your feedback is always taken into account
+                so we can continually improve and offer better service. 
+            </p>
+        <br>
+            <a class="btn btn-sm buttonClass" href="{% url 'add_review' %}">Add a Review</a>
+        </div>
+        
+    </div>
+
+
+    <div class=" reviewStyle text-center" >
+        <p style="font-size: 18px; ">
+            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Ea commodi saepe dolor nemo laboriosam, illum eum consequatur repellendus 
+             iusto quisquam veniam adipisci, eaque veritatis harum vitae! Molestiae sequi ipsum distinctio.
+        </p>
+    </div>
 </div>
 {% endblock %}

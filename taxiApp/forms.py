@@ -29,7 +29,26 @@ class ContactForm(ModelForm):
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ('title', 'content', 'rating')
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': "Title of Review"
+            }),
+            'content': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': "Content of Review"
+            }),
+            'rating': forms.NumberInput(attrs={
+                'class': "form-control",
+                'placeholder': "Leave a Rating"
+            }),
+        }
+
+class BookingForm(ModelForm):
+    class Meta:
+        model = Booking
+        fields = ('pickup', 'destination', 'driver')
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': "form-control",

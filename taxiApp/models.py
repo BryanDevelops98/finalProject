@@ -1,22 +1,22 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 
 # Create your models here.
 
+# Merge the Driver and Rider into a User class
+# Add Role of Driver if the User is a Driver?
+# Add property: IsDriver to indicate if the user is a Driver
+# Add foreign key to Car?
+# Add phonenumber property for Driver (can be null, can be empty for regular User)
+
+# Make sure to use only properties for regular or driver in registration form
+# Update regular login/register pages to be User
+# Create Driver login/register page
 
 class Rider(AbstractUser):
-    # Use pip package: https://github.com/stefanfoulis/django-phonenumber-field
-    # phone_number =
-
     def __str__(self):
         return self.username
 
-
-class Review(models.Model):
-    title = models.CharField(max_length=120, blank=False)
-    content = models.TextField(max_length=500, blank=False)
-    rating = models.IntegerField(blank=False, default=0)
-    rider = models.ForeignKey(Rider, on_delete=models.CASCADE)
 
 class Contact(models.Model):
     fullname = models.CharField(max_length=120, blank=False)
@@ -31,20 +31,37 @@ class Car(models.Model):
     model = models.CharField(max_length=120, blank=False)
     make = models.CharField(max_length=120, blank=False)
     year = models.IntegerField(blank=False)
-    color = models.CharField(max_length=16, blank=True,
-                             null=True, default="#000000")
+    color = models.CharField(max_length=16, blank=True, null=True, default="#000000")
+    # Add foreign key to User for Driver (Driver can have multiple Cars?)
 
 # A Driver can be associated with any number of Cars
 
 
+# Remove this class, will be merged into User class
 class Driver(models.Model):
     first_name = models.CharField(max_length=120, blank=False)
     last_name = models.CharField(max_length=120, blank=False)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
 
+REVIEW_RATINGS = (
+    (1, "Terrible"),
+    (2, "Bad"),
+    (3, "Ok"),
+    (4, "Good"),
+    (5, "Outstanding"), 
+)
+
+class Review(models.Model):
+    title = models.CharField(max_length=120, blank=False)
+    content = models.TextField(max_length=500, blank=False)
+    rating = models.IntegerField(blank=False, default=3, choices=REVIEW_RATINGS)
+    rider = models.ForeignKey(Rider, on_delete=models.CASCADE)
+
+
 BOOKING_STATUSES = [
     ("created", "created"),
+    ("accepted", "accepted"),
     ("cancelled", "cancelled")
 ]
 
@@ -55,10 +72,10 @@ BOOKING_STATUSES = [
 
 
 class Booking(models.Model):
-    created = models.DateTimeField(blank=False, null=False)
+    created = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     updated = models.DateTimeField(auto_now=True, null=False)
     status = models.CharField(max_length=85, blank=False, choices=BOOKING_STATUSES)
-    destination = models.CharField(max_length=350, blank=False, null=False)
+    pickup = models.CharField(max_length=350, blank=False, null=True)
+    destination = models.CharField(max_length=350, blank=False, null=True)
     rider = models.ForeignKey(Rider, on_delete=models.CASCADE)
-    # For now delete, changing driver or driver out/injured is a possibility
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)

@@ -39,13 +39,20 @@ html,body{
 
 }
 .buttonClass:hover{
-  color: white;
-  background-color: #fed136;
-  border-color: #fed136;
+  color: #fff;
   transform: scale(1.1,1.1);
   transition: transform .5s;
 
 
+}
+.btnLogin{
+  color: white;
+  background-color:black;
+}
+.btnLogin:hover{
+  color: #fff;
+  transform: scale(1.1,1.1);
+  transition: transform .5s;
 }
 
 .navbarColor{

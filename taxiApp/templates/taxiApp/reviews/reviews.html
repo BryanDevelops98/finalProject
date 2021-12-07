@@ -1,0 +1,81 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load review_extras %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="text-center pt-2 display-4">Reviews</h1>
+  <div class="row">
+    <div class="col-12 text-center">
+      <p style="font-size: 18px; margin: 0rem 4.5rem">
+        Our customers are what makes us, us! We try our best so every customer
+        has the best trip possible. Here are just a handful of the feedback
+        we've recieved from out riders. Your feedback is always taken into
+        account so we can continually improve and offer better service.
+      </p>
+      <br />
+      <a class="btn btn-sm buttonClass" href="{% url 'add_review' %}"
+        >Add a Review</a
+      >
+    </div>
+  </div>
+
+  {% for review in reviews %}
+
+  <div class="reviewStyle">
+    <h5> {{ review.rider.username }} - {{ review.title }}</h5>
+      <span class="badge rounded-pill {{ review.rating|rating_badge }} mb-2">
+        {{ review.get_rating_display }}
+      </span>
+      
+      <p>{{ review.content }}</p>
+      <p>
+        <small>Created: <span class="text-muted">{{ review.created | date:"N j, Y" }}</span></small>
+      {% if review.updated > review.created %}
+      <br>
+      <small>Updated: <span class="text-muted">{{ review.updated | date:"N j, Y" }}</span></small>
+      {% endif %}
+      </p>
+
+      {% if review.rider.id == user.id %}
+      <div class="btn-group btn-group-sm shadow-none" role="group">
+        <a href="{% url 'update_review' review.id %}" class="btn btn-light" style="color: dodgerblue">
+          Edit
+        </a>
+        <a href="{% url 'delete_review' review.id %}" class="btn btn-light" style="color: red">
+            Delete
+        </a>
+      </div>
+
+      {% comment %} <div class="d-flex flex-row align-items-center">
+        <a
+            href="{% url 'update_review' review.id %}"
+            type="button"
+            class="btn btn-sm btn-outline-primary me-1"
+          >
+            Update
+          </a>
+
+          <a
+            href="{% url 'delete_review' review.id %}"
+            type="button"
+            class="btn btn-sm btn-outline-danger"
+          >
+            Delete
+          </a>
+      </div> {% endcomment %}
+      {% endif %}
+  </div>
+
+
+  {% comment %} <div class="reviewStyle text-center">
+    <h4> <small class="text-muted">  </small> -  </h4>
+    <p style="font-size: 1.2rem">
+      
+    </p>
+  </div> {% endcomment %}
+
+  {% endfor %}
+
+</div>
+{% endblock %}

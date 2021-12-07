@@ -1,5 +1,6 @@
 from django import forms
-from django.db.models import fields
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import Group, User
 from django.forms import ModelForm
 from .models import *
 
@@ -33,33 +34,29 @@ class ReviewForm(ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': "Title of Review"
+                'placeholder': "Title"
             }),
-            'content': forms.TextInput(attrs={
+            'content': forms.Textarea(attrs={
                 'class': "form-control",
-                'placeholder': "Content of Review"
+                'rows': '3',
+                'placeholder': "How was our service?"
             }),
-            'rating': forms.NumberInput(attrs={
+            'rating': forms.Select(attrs={
                 'class': "form-control",
-                'placeholder': "Leave a Rating"
             }),
         }
 
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
-        fields = ('pickup', 'destination', 'driver')
+        fields = ('pickup', 'dropoff', 'driver')
         widgets = {
-            'title': forms.TextInput(attrs={
+            'pickup': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': "Title of Review"
+                'placeholder': "Pickup Location"
             }),
-            'content': forms.TextInput(attrs={
+            'dropoff': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': "Content of Review"
-            }),
-            'rating': forms.NumberInput(attrs={
-                'class': "form-control",
-                'placeholder': "Leave a Rating"
+                'placeholder': "Drop-off Location"
             }),
         }

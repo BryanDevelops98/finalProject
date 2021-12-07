@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 
 
+
 def index(request: HttpRequest):
     return render(request, 'taxiApp/index.html')
 
@@ -31,7 +32,9 @@ def staff(request: HttpRequest):
 
 
 def reviews(request: HttpRequest):
-    return render(request, 'taxiApp/reviews.html')
+    reviews = Review.objects.order_by('created')
+    context = { 'reviews': reviews }
+    return render(request, 'taxiApp/reviews/reviews.html', context)
 
 @login_required(login_url='login')
 def add_review(request: HttpResponse):
@@ -40,10 +43,35 @@ def add_review(request: HttpResponse):
     
     if request.method == 'POST':
         if form.is_valid():
-            form.instance.user = request.user
+            form.instance.rider = request.user
             form.save()
             return redirect('reviews')
 
     context = {'form': form}
-    # add context
-    return render(request, 'taxiApp/add_review.html', context)
+    return render(request, 'taxiApp/reviews/add_review.html', context)
+
+@login_required(login_url='login')
+def update_review(request: HttpResponse, id: str):
+    review = Review.objects.get(id=id)
+    form = ReviewForm(instance=review)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+
+        if form.is_valid():
+            form.save()
+            return redirect('reviews')
+
+    context = {'form': form}
+    return render(request, 'taxiApp/reviews/update_review.html', context)
+
+@login_required(login_url='login')
+def delete_review(request: HttpResponse, id: str):
+    review = Review.objects.get(id=id)
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect('index')
+
+    context = {'review': review}
+    return render(request, 'taxiApp/reviews/delete_review.html', context)

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts'
 ]
 
-AUTH_USER_MODEL = 'taxiApp.Rider' # new
+AUTH_USER_MODEL = 'auth.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

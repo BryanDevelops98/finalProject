@@ -2,15 +2,20 @@
 {% load static %}
 
 {% block content %}
+<div class="container text-center mt-5">
+    <h1 class="m-3">Login</h1>
 
-<h1>Login</h1>
+    <form action="{% url 'login' %}" method="POST" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
 
-<form action="{% url 'login' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input class="btn btn-primary" type="submit" value="Login">
-</form>
+        <input class="btn buttonClass m-2" type="submit" value="Login">
+        <a class="btn btnLogin m-2" href="{% url 'register' %}" >Register</a>
 
-<a class="btn btn-secondary" href="{% url 'register' %}">Register</a>
+    </form>
+    
+</div>
+
 
 {% endblock  %}

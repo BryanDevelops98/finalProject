@@ -30,6 +30,7 @@ html,body{
   background-size: 100% 100%;
   object-fit: cover;
 
+
 }
 .buttonClass{
   color: white;
@@ -38,13 +39,20 @@ html,body{
 
 }
 .buttonClass:hover{
-  color: white;
-  background-color: #fed136;
-  border-color: #fed136;
+  color: #fff;
   transform: scale(1.1,1.1);
   transition: transform .5s;
 
 
+}
+.btnLogin{
+  color: white;
+  background-color:black;
+}
+.btnLogin:hover{
+  color: #fff;
+  transform: scale(1.1,1.1);
+  transition: transform .5s;
 }
 
 .navbarColor{
@@ -154,12 +162,22 @@ html,body{
     border: 5px solid  #fff;
     object-fit: cover;
 }
-.contactBack{
-/*   background-image: url('static/img/japan.jpg');
- */}
+
  .reviewStyle{
    padding: 1rem 5rem;
    border:solid;
    border-color: #fed136;
    margin: 2rem;
  }
+.indexImage{
+  display: block;
+  width: 250px;
+  height:250px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid  #fff;
+  object-fit: cover;
+  box-shadow: 0px 3px 18px 3px rgb(0,0,0,0.2);
+
+}

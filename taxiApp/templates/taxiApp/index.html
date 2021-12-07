@@ -37,8 +37,10 @@
           src="{% static 'img/city.jpg' %}"
           class="d-block w-100 imgClass"
           alt="..."
+          
         />
         <div class="carousel-caption d-none d-md-block">
+          <h2 class="mb-3 display-4">Welcome</h2>
           <a href="{% url 'contact' %}">
             <button type="button" class="btn buttonClass">Contact Us</button>
             </a>
@@ -55,6 +57,8 @@
           alt="..."
         />
         <div class="carousel-caption d-none d-md-block">
+          <h2 class="mb-3 display-4">Need a Ride?</h2>
+
           <a href="{% url 'booking' %}">
             <button type="button" class="btn buttonClass">Book Online</button>
           </a>
@@ -71,6 +75,8 @@
           alt="..."
         />
         <div class="carousel-caption d-none d-md-block">
+          <h2 class="mb-3 display-4">Meet the Team!</h2>
+
           <a href="{% url 'staff' %}">
             <button type="button" class="btn buttonClass">Staff</button>
           </a>
@@ -84,12 +90,14 @@
           src="{% static 'img/tokyo.jpg' %}"
           class="d-block w-100 imgClass"
           alt="..."
+          
         />
         <div class="carousel-caption d-none d-md-block">
+          <h2 class="mb-3 display-4">Check out our Reviews!</h2>
+
           <a href="{% url 'reviews' %}">
             <button type="button" class="btn buttonClass">Reviews</button>
           </a>
-          <p>Check out our Reviews</p>
         </div>
       </div>
     </div>
@@ -111,5 +119,26 @@
     </button>
   </div>
   <!-- <img src="{% static 'img/japan.jpg' %}" alt="My image" class="imgClass"> -->
+</section>
+<section>
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-md-5">
+        <img src="{% static 'img/indexTaxi.jpg' %}" class="indexImage">
+      </div>
+      <div class="col-md-6 text-center " style="  box-shadow: 0px 3px 18px 3px rgb(0,0,0,0.2);
+      ">
+        <h2 >Mission</h2>
+        <p class="p-3">​The whole taxi service in itself can be one of the best ways to get yourself swiftly 
+          and safely from destination A to B in no time. Unfortunately it can also be the exact opposite;
+           no one wants to get in a taxi with an unfriendly and unprofessional driver or in a taxi that costs
+            too much, or is not on time or is driving you in a low conditioned unhygienic car. This is
+             where our cabs come in, take our taxi and we promise that this will not happen to 
+             you. Our taxi service will pick you up fast, friendly and affordable with superior technology 
+             and comfortable seats, but most importantly; with a great taxi experience. Moreover, our taxis
+              are clean and also checked and maintained on a regular basis.</p>
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock %}

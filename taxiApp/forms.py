@@ -1,8 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import Group, User
 from django.forms import ModelForm
 from .models import *
+
 
 class ContactForm(ModelForm):
     class Meta:
@@ -28,6 +27,7 @@ class ContactForm(ModelForm):
             }),
         }
 
+
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
@@ -47,10 +47,11 @@ class ReviewForm(ModelForm):
             }),
         }
 
+
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
-        fields = ('pickup', 'dropoff', 'driver')
+        fields = ('pickup', 'dropoff', 'driver', 'depart_date', 'depart_time')
         widgets = {
             'pickup': forms.TextInput(attrs={
                 'class': "form-control",
@@ -61,6 +62,14 @@ class BookingForm(ModelForm):
                 'placeholder': "Drop-off Location"
             }),
             'driver': forms.Select(attrs={
+                'class': "form-control",
+            }),
+            'depart_date': forms.DateInput(attrs={
+                'type': 'date',
+                'class': "form-control",
+            }),
+            'depart_time': forms.TimeInput(attrs={
+                'type': 'time',
                 'class': "form-control",
             }),
         }

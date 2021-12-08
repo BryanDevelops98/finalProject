@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">Cancel Booking</div>
+
+            <div class="card-body">
+                <form action="{% url 'cancel_booking' booking.id %}" method="POST" role="form">
+                    {% csrf_token %}
+
+                    <div class="form-group mb-3">
+                        <div class="row" style="background-color: white">
+                            <div class="input-group input-group-md col-10">
+                                <p>Are you sure you want to <span class="text-danger">cancel</span> ?</p>
+                                <p>Trip with Rider: {{ booking.rider.username }} - Driver: {{ booking.driver.username }}</p>
+                                <span><b>From:</b> {{ booking.pickup }}</span>
+                                <span><b>To:</b> {{ booking.dropoff }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'index' %}" class="btn btn-info text-white">
+                        No, go back
+                    </a>
+
+                    <input type="submit" class="btn btn-danger" value="Yes, cancel"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

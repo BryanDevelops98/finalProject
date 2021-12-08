@@ -27,7 +27,7 @@ def register_view(request: HttpRequest):
     return render(request, 'accounts/register.html', {'form': form})
 
 
-def login_view(request):
+def login_view(request: HttpRequest):
     if request.user.is_authenticated:
         return redirect('index')
 
@@ -42,6 +42,6 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 
-def logout_view(request):
+def logout_view(request: HttpRequest):
     logout(request)
     return redirect('index')

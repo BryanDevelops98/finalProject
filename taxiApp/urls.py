@@ -3,11 +3,15 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="index"),
+    path('error/', views.error, name="error"),
     
     path('contact/', views.contact, name="contact"),
 
     path('book/', views.booking, name="booking"),
-    path('bookings/driver/<str:id>/', views.driver_bookings, name="driver_bookings"),
+    path('bookings/driver/', views.driver_bookings, name="driver_bookings"),
+    path('bookings/accept/<str:id>/', views.accept_booking, name="accept_booking"),
+    path('bookings/cancel/<str:id>/', views.cancel_booking, name="cancel_booking"),
+    path('bookings/delete/<str:id>/', views.delete_booking, name="delete_booking"),
 
     path('staff/', views.staff, name="staff"),
 

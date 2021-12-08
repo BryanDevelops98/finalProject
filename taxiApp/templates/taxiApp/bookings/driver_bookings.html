@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <h1>Driver Bookings</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% if bookings.count < 1 %}
+        <h2>No Bookings yet!</h2>
+    {% else %}
+        {% for booking in bookings %}
+        <div class="col">
+          <div class="card h-25">
+              <div class="card-header">
+                  <span class="badge bg-success">
+                      {{ booking.get_status_display }}
+                  </span>
+              </div>
+
+              <div class="card-body">
+                  <div class="card-title">
+                      <h4>Drive with Rider: {{ booking.rider.username }}</h4>
+                  </div>
+
+                  <div class="card-text">
+                    <span><b>From:</b> {{ booking.pickup }}</span>
+                  </div>
+
+                  <div class="card-text">
+                    <span><b>To:</b> {{ booking.dropoff }}</span>
+                  </div>
+
+                  <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center">
+                          {% if booking.status == 1 %}
+                              <a class="btn editBtn" href="{% url 'accept_booking' booking.id %}">Accept</a>
+                          {% endif %}
+
+                          {% if booking.status < 3 %}
+                              <a class="btn deleteBtn ms-1" href="{% url 'cancel_booking' booking.id %}">Cancel</a>
+                          {% else %}
+                              <p class="ms-1">Booking was <span class="text-danger">cancelled</span>
+                                  <a class="btn deleteBtn" href="{% url 'delete_booking' booking.id %}">Delete</a>
+                              </p>
+                          {% endif %}
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card-footer">
+                  <p class="card-text">
+                      Created:
+                      <span class="text-muted">
+                          {{ booking.created|date:"N j P"}}
+                      </span>
+                  </p>
+              </div>
+          </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

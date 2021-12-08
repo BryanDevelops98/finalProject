@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <h2 class="display-3 text-center mt-3 ">Contact Us</h2>
+        <h4 class="text-center">Contact us if you have any questions.</h4>
+
+        <br>
+
+        <div class=" row">
+            <div class="col-md-6 my-3">
+                <div class="row  p-4">
+                    <div class=" col-3 text-end">
+                        <img src="{% static 'svg/location.svg' %}" alt="location">
+                    </div>
+
+                    <div class="col-9 text-center">
+                        <h4><b>Address</b></h4>
+                        <p>1615 Stanley St
+                            <br>
+                            New Britain, CT 06050</p>
+                    </div>
+                </div>
+
+                <div class="row px-4 pb-4">
+                    <div class=" col-3 text-end">
+                        <img src="{% static 'svg/envelope.svg' %}" alt="envelope">
+                    </div>
+                    <div class="col-9 text-center">
+                        <h4><b>E-mail</b></h4>
+                        <p>webprogramming@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="row px-4 pb-4">
+                    <div class=" col-3 text-end">
+                        <img src="{% static 'svg/telephone.svg' %}" alt="telephone">
+                    </div>
+                    <div class="col-9 text-center">
+                        <h4><b>Phone</b></h4>
+                        <p>860-832-3200
+                        </p>
+                    </div>
+                </div>
+
+                <img src="{% static 'img/contactTaxi.svg' %}" class="contactTaxi " alt="contactTaxi">
+
+            </div>
+
+            <div class="col-md-6 my-3 boxShadowStyle">
+                <form method="POST" action="">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <p class="form-text">
+                            We'll <b>never</b> share any information you provide us.
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.fullname.label }}
+                        {{ form.fullname }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.email.label }}
+                        {{ form.email }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.phonenumber.label }}
+                        {{ form.phonenumber }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.organization.label }}
+                        {{ form.organization }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.message.label }}
+                        {{ form.message }}
+                    </div>
+
+                    <button type="submit" class="btn buttonClass mb-2">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

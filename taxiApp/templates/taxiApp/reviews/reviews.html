@@ -10,8 +10,8 @@
       <p style="font-size: 18px; margin: 0rem 4.5rem">
         Our customers are what makes us, us! We try our best so every customer
         has the best trip possible. Here are just a handful of the feedback
-        we've recieved from out riders. Your feedback is always taken into
-        account so we can continually improve and offer better service.
+        we've received from out riders. Your feedback is always taken into
+        account, so we can continually improve and offer better service.
       </p>
       <br />
       <a class="btn btn-sm buttonClass" href="{% url 'add_review' %}"
@@ -31,7 +31,7 @@
 
       </div>
       <div class="col-md-6 my-2">
-        <h5>Rating:  <span class="badge ratingPill {{ review.rating|rating_badge }} mb-2" id="reviewGrade">
+        <h5 style="font-weight: bolder;">Rating:  <span class="badge ratingPill {{ review.rating|rating_badge }} mb-2" id="reviewGrade">
           {{ review.get_rating_display }}
         </span></h5>
         

@@ -86,10 +86,10 @@
 
                                 <div class="d-flex align-items-center">
                                     {% if booking.status == 1 or booking.status == 2 %}
-                                        <a class="btn deleteBtn ms-1" href="#">Cancel</a>
+                                        <a class="btn deleteBtn ms-1" href="{% url 'cancel_booking' booking.id %}">Cancel</a>
                                     {% elif booking.status == 3 %}
                                         <p class="ms-1">Booking was <span class="text-danger">cancelled</span>
-                                            <a class="btn deleteBtn" href="#">Delete</a>
+                                            <a class="btn deleteBtn" href="{% url 'delete_booking' booking.id %}">Delete</a>
                                         </p>
                                     {% endif %}
                                 </div>

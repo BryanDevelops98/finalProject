@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import Group
 from django.forms import ModelForm
 from .models import *
 
@@ -49,6 +50,14 @@ class ReviewForm(ModelForm):
 
 
 class BookingForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(BookingForm, self).__init__(*args, **kwargs)
+
+        # Get only the drivers for dropdown
+        (drivers_group, error) = Group.objects.get_or_create(name='drivers')
+        drivers = drivers_group.user_set.all()
+        self.fields['driver'].queryset = drivers
+
     class Meta:
         model = Booking
         fields = ('pickup', 'dropoff', 'driver', 'depart_date', 'depart_time')

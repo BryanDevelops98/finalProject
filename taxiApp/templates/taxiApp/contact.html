@@ -48,12 +48,14 @@
                 {% csrf_token %}
 
                 <div class="mb-3">
+                    <p class="form-text">
+                        We'll <b>never</b> share any information you provide us.
+                      </p>
+                </div>
+
+                <div class="mb-3">
                   {{form.fullname.label}}
                   {{form.fullname}}
-                    <p id="emailHelp" class="form-text">
-                      We'll never share your 
-                      email with anyone else.
-                    </p>
                 </div>
 
                 <div class="mb-3">

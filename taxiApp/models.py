@@ -71,7 +71,7 @@ BOOKING_STATUSES = [
 class Booking(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    status = models.PositiveIntegerField(blank=False, choices=BOOKING_STATUSES)
+    status = models.PositiveIntegerField(blank=False, default=1, choices=BOOKING_STATUSES)
     pickup = models.CharField(max_length=350, blank=False, null=False)
     dropoff = models.CharField(max_length=350, blank=False, null=False)
     rider = models.ForeignKey(settings.AUTH_USER_MODEL,

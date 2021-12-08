@@ -60,4 +60,7 @@ class BookingForm(ModelForm):
                 'class': "form-control",
                 'placeholder': "Drop-off Location"
             }),
+            'driver': forms.Select(attrs={
+                'class': "form-control",
+            }),
         }

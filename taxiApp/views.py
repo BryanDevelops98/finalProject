@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -22,9 +23,20 @@ def contact(request: HttpRequest):
     context = {'form': form}
     return render(request, 'taxiApp/contact.html', context)
 
-
+@login_required(login_url='login')
 def booking(request: HttpRequest):
-    return render(request, 'taxiApp/booking.html')
+    bookings =  Booking.objects.filter(rider_id=request.user.id)
+    form = BookingForm(request.POST or None)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            form.instance.rider = request.user
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Ride booked, enjoy your upcoming trip!')
+            return redirect('booking')
+
+    context = {'bookings': bookings, 'form': form}
+    return render(request, 'taxiApp/booking.html', context)
 
 def driver_bookings(request: HttpRequest, id: str):
     bookings = Booking.objects.filter(driver_id=id)

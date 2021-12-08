@@ -4,7 +4,7 @@
 {% block content %}
 
     <div class="container-fluid">
-        <div class="card">
+        <div class="card boxShadowStyle">
             <div class="card-header">Cancel Booking</div>
 
             <div class="card-body">
@@ -15,9 +15,16 @@
                         <div class="row" style="background-color: white">
                             <div class="input-group input-group-md col-10">
                                 <p>Are you sure you want to <span class="text-danger">cancel</span> ?</p>
-                                <p>Trip with Rider: {{ booking.rider.username }} - Driver: {{ booking.driver.username }}</p>
-                                <span><b>From:</b> {{ booking.pickup }}</span>
-                                <span><b>To:</b> {{ booking.dropoff }}</span>
+                                <p>Trip with Rider: {{ booking.rider.username }} - Driver: {{ booking.driver.username }} </p>
+                                <div class="col-12">
+                                    <span><b>From:</b> {{ booking.pickup }}</span>
+
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <span><b>To:</b> {{ booking.dropoff }}</span>
+
+                                </div>  
+                                
                             </div>
                         </div>
                     </div>
@@ -26,7 +33,7 @@
                         No, go back
                     </a>
 
-                    <input type="submit" class="btn btn-danger" value="Yes, cancel"/>
+                    <input type="submit" class="btn deleteBtn" value="Yes, cancel"/>
                 </form>
             </div>
         </div>

@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid" >
+<div class="container" >
     <h2 class="display-3 text-center ">Contact Us</h2>
     
     <h5 class="text-center">Contact us if you have any questions.</h5>
     <br>
-    <div class=" row border border-primary">
+    <div class=" row">
         <div class="col-md-6 border border-danger  contactBack" >
             <div class="row text-center p-4">
                 <div class=" col-3">
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 " style="box-shadow: 0px 3px 18px 3px rgb(0,0,0,0.2);">
             <form method="POST" action="">
                 {% csrf_token %}
 
@@ -73,7 +73,7 @@
                     {{form.message}}
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn buttonClass mb-2">Submit</button>
               </form>
         </div>
 

@@ -23,12 +23,22 @@
   {% for review in reviews %}
 
   <div class="reviewStyle">
-    <h5> {{ review.rider.username }} - {{ review.title }}</h5>
-      <span class="badge rounded-pill {{ review.rating|rating_badge }} mb-2">
-        {{ review.get_rating_display }}
-      </span>
+    <h4 class="text-center"> <b>{{ review.rider.username }}</b></h4>
+
+    <div class="row text-center">
+      <div class="col-md-6 my-2">
+        <h5 style="font-weight: bolder;">Title:  <span style="font-weight: lighter;"> {{ review.title }}</span> </h5>
+
+      </div>
+      <div class="col-md-6 my-2">
+        <h5>Rating:  <span class="badge ratingPill {{ review.rating|rating_badge }} mb-2" id="reviewGrade">
+          {{ review.get_rating_display }}
+        </span></h5>
+        
+      </div>
+    </div>
       
-      <p>{{ review.content }}</p>
+      <p> <b>Comment:</b> {{ review.content }}</p>
       <p>
         <small>Created: <span class="text-muted">{{ review.created | date:"N j, Y" }}</span></small>
       {% if review.updated > review.created %}
@@ -38,14 +48,17 @@
       </p>
 
       {% if review.rider.id == user.id %}
-      <div class="btn-group btn-group-sm shadow-none" role="group">
-        <a href="{% url 'update_review' review.id %}" class="btn btn-light" style="color: dodgerblue">
-          Edit
-        </a>
-        <a href="{% url 'delete_review' review.id %}" class="btn btn-light" style="color: red">
-            Delete
-        </a>
+      <div class="col-12 reviewComponents ">
+        <div class="btn-group btn-group-sm" role="group">
+          <a href="{% url 'update_review' review.id %}" class="btn editBtn " >
+            Edit
+          </a>
+          <a href="{% url 'delete_review' review.id %}" class="btn deleteBtn" >
+              Delete
+          </a>
+        </div>
       </div>
+     
 
       {% endif %}
   </div>

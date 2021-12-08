@@ -3,9 +3,9 @@
 
 {% block content %}
 <div class="container">
-    <h1>Register</h1>
+    <h1 class="text-center my-3">Register</h1>
 
-<form action="{% url 'register' %}" method="POST">
+<form action="{% url 'register' %}" method="POST" class="boxShadowStyle m-2 p-4">
     {% csrf_token %}
     {{ form.as_p }}
 

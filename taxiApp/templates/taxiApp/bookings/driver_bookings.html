@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load booking_extras %}
 
 {% block content %}
 
@@ -20,7 +21,7 @@
         <div class="card h-25 boxShadowStyle" >
             
                 <div class="card-header">
-                    <span class="badge bg-success">
+                    <span class="badge {{ booking.status|booking_badge }}">
                         {{ booking.get_status_display }}
                     </span>
                 </div>
@@ -36,6 +37,10 @@
   
                     <div class="card-text">
                       <span><b>To:</b> {{ booking.dropoff }}</span>
+                    </div>
+
+                    <div class="card-text">
+                        <span><b>When:</b> {{ booking.depart_date|date:"N j Y" }} - {{ booking.depart_time }}</span>
                     </div>
   
                     <div class="d-flex align-items-center">

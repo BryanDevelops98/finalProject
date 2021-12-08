@@ -148,7 +148,8 @@ def delete_review(request: HttpRequest, id: str):
 
     if request.method == 'POST':
         review.delete()
-        return redirect('index')
+        return redirect("reviews")
+
 
     context = {'review': review}
     return render(request, 'taxiApp/reviews/delete_review.html', context)

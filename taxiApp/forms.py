@@ -21,10 +21,14 @@ class ContactForm(ModelForm):
                 'class': "form-control"
             }),
             'phonenumber': forms.TextInput(attrs={
-                'class': "form-control"
+                'class': "form-control",
+                'placeholder': "Optional"
+
             }),
             'organization': forms.TextInput(attrs={
-                'class': "form-control"
+                'class': "form-control",
+                'placeholder': "Optional"
+
             }),
         }
 

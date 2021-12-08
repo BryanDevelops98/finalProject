@@ -250,3 +250,20 @@ box-shadow: 0px 3px 18px 3px rgba(27, 2, 248, 0.2);
   transition: transform 1.5s;
 
 }
+.terrible{
+background: #580000;
+}
+
+.bad{
+background:#e60707 ;
+}
+.ok{
+background: #c4c705;
+
+}
+.good{
+background: #70b600;
+}
+.outstanding{
+background: #22c701ab;
+}

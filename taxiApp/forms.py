@@ -12,6 +12,7 @@ class ContactForm(ModelForm):
         widgets = {
             'fullname': forms.TextInput(attrs={
                 'class': "form-control"
+
             }),
             'email': forms.EmailInput(attrs={
                 'class': "form-control"

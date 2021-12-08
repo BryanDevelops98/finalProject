@@ -15,7 +15,10 @@
                         <div class="row" style="background-color: white">
                             <div class="input-group input-group-md col-10">
                                 <p>Are you sure you want to <span class="text-danger">cancel</span> ?</p>
-                                <p>Trip with Rider: {{ booking.rider.username }} - Driver: {{ booking.driver.username }} </p>
+                                <p><b>Trip with Rider:</b> {{ booking.rider.username }}  </p>
+                                <div class="col-12">
+                                    <p><b>Driver: </b>{{ booking.driver.username }}</p>
+                                </div>
                                 <div class="col-12">
                                     <span><b>From:</b> {{ booking.pickup }}</span>
 
@@ -26,10 +29,13 @@
                                 </div>  
                                 
                             </div>
+                            <div class="card-text mt-2">
+                                <span><b>When:</b> {{ booking.depart_date|date:"N j Y" }} - <b>Time:</b> {{ booking.depart_time }}</span>
+                            </div>
                         </div>
                     </div>
 
-                    <a href="{% url 'index' %}" class="btn btn-info text-white">
+                    <a href="{% url 'booking' %}" class="btn btn-info text-white">
                         No, go back
                     </a>
 

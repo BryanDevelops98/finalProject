@@ -47,34 +47,8 @@
         </a>
       </div>
 
-      {% comment %} <div class="d-flex flex-row align-items-center">
-        <a
-            href="{% url 'update_review' review.id %}"
-            type="button"
-            class="btn btn-sm btn-outline-primary me-1"
-          >
-            Update
-          </a>
-
-          <a
-            href="{% url 'delete_review' review.id %}"
-            type="button"
-            class="btn btn-sm btn-outline-danger"
-          >
-            Delete
-          </a>
-      </div> {% endcomment %}
       {% endif %}
   </div>
-
-
-  {% comment %} <div class="reviewStyle text-center">
-    <h4> <small class="text-muted">  </small> -  </h4>
-    <p style="font-size: 1.2rem">
-      
-    </p>
-  </div> {% endcomment %}
-
   {% endfor %}
 
 </div>

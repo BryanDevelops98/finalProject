@@ -26,6 +26,10 @@ def contact(request: HttpRequest):
 def booking(request: HttpRequest):
     return render(request, 'taxiApp/booking.html')
 
+def driver_bookings(request: HttpRequest, id: str):
+    bookings = Booking.objects.filter(driver_id=id)
+    context = { 'bookings': bookings }
+    return render(request, 'taxiApp/driver_bookings.html', context)
 
 def staff(request: HttpRequest):
     return render(request, 'taxiApp/staff.html')

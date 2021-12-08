@@ -1,4 +1,5 @@
 {% load static %}
+{% load user_extras %}
 
 <nav
   class="navbar navbar-expand-lg navbar-dark navbarColor sticky-top"
@@ -39,11 +40,23 @@
           </a>
         </li>
 
+        {% if user|is_driver %}
+
+        <li class="nav-item">
+          <a class="nav-link navHover active" href="{% url 'driver_bookings' user.id %}">
+            Bookings
+          </a>
+        </li>
+        
+        {% else %}
+
         <li class="nav-item">
           <a class="nav-link navHover active" href="{% url 'booking' %}">
             Book Online
           </a>
         </li>
+
+        {% endif %}
 
         <li class="nav-item">
           <a class="nav-link navHover active" href="{% url 'staff' %}">

@@ -1,16 +1,26 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
+{% load static %} 
 
 {% block content %}
 
 <h1>Register</h1>
 
 <form action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input class="btn btn-primary" type="submit" value="Register">
+  {% csrf_token %} 
+  
+  {{ form.as_p }}
+  
+  <div class="form-group">
+    <label for="driver_reg">Register as Driver?</label>
+    <select name="driver_reg">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+  <input class="btn btn-primary" type="submit" value="Register" />
 </form>
 
 <a class="btn btn-secondary" href="{% url 'login' %}">Login</a>
 
-{% endblock  %}
+{% endblock %}

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kw6_%kr8-n56gug7(y7u7q=i_@gtz^ymjz8(x_^%@r35xbo66+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['taxiwebapp.herokuapp.com','127.0.0.1']
 
 
 # Application definition
